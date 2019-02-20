@@ -1,4 +1,4 @@
-# TabCyclist README
+# TabCyclist
 
 Cycle through your tabs like a slideshow
 
@@ -24,6 +24,6 @@ This extension contributes the following settings:
 
 It can be tricky to stop the cycling due the command palette loses focus. Check the **keyboard shortcuts**
 
-
 ## Attribution
-* Cyclist icon used from [Twemoji](https://twemoji.twitter.com/)
+
+- Cyclist icon used from [Twemoji](https://twemoji.twitter.com/)
