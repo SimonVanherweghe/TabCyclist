@@ -1,0 +1,65 @@
+{
+  "name": "tabcyclist",
+  "displayName": "TabCyclist",
+  "description": "Cycle your currently opened tabs, like a slideshow",
+  "publisher": "donebysimon",
+  "icon": "images/tabcyclisticon.png",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.31.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:cycletabs.start",
+    "onCommand:cycletabs.stop"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "keybindings": [
+      {
+        "command": "cycletabs.start",
+        "key": "alt+f1",
+        "mac": "alt+c"
+      },
+      {
+        "command": "cycletabs.stop",
+        "key": "alt+f",
+        "mac": "alt+f"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "TabCyclist configuration",
+      "properties": {
+        "tabcyclist.interval": {
+          "type": "integer",
+          "default": 5,
+          "description": "Time in seconds a tab should be visible"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "cycletabs.start",
+        "title": "Start cycling tabs"
+      },
+      {
+        "command": "cycletabs.stop",
+        "title": "Stop cycling tabs"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.1",
+    "vscode": "^1.1.28",
+    "eslint": "^5.13.0",
+    "@types/node": "^10.12.21",
+    "@types/mocha": "^2.2.42"
+  }
+}
