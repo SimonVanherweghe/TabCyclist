@@ -18,12 +18,19 @@ function activate(context) {
     "cycletabs.start",
     function() {
       // The code you place here will be executed every time your command is executed
-      vscode.window.showInformationMessage("Started cycling 🚴‍");
+
       const interval =
         vscode.workspace.getConfiguration("tabcyclist").get("interval") || 5;
-      intervalId = setInterval(() => {
-        vscode.commands.executeCommand("workbench.action.nextEditor");
-      }, interval * 1000);
+      if (!intervalId) {
+        intervalId = setInterval(() => {
+          vscode.commands.executeCommand("workbench.action.nextEditor");
+        }, interval * 1000);
+        vscode.window.showInformationMessage("Started cycling 🚴‍");
+      } else {
+        vscode.window.showWarningMessage(
+          "There is already a cyclist started. 🚵‍"
+        );
+      }
     }
   );
 
@@ -31,7 +38,7 @@ function activate(context) {
     "cycletabs.stop",
     function() {
       // The code you place here will be executed every time your command is executed
-      clearInterval(intervalId);
+      intervalId = clearInterval(intervalId);
       vscode.window.showInformationMessage("Stopped cycling 🏁");
     }
   );
