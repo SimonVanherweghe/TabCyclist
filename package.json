@@ -4,7 +4,7 @@
   "description": "Cycle your currently opened tabs, like a slideshow",
   "publisher": "donebysimon",
   "icon": "images/tabcyclisticon.png",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.31.0"
   },
